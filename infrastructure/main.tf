@@ -3,6 +3,7 @@ terraform {
         bucket          = "172431101814-terraform-states"
         key             = "zillow-api-glue-pipeline-tf-infra/terraform.tfstate"
         region          = "us-east-1"
+        role_arn        = local.terraform_role_arn
         dynamodb_table  = "terraform-lock"
         encrypt         = true
         profile         = "terraform"

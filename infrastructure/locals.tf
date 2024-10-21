@@ -11,6 +11,11 @@ variable "rapid_api_key" {
   type        = string
 }
 
+variable "terraform_role_arn" {
+  description = "Terraform ARN role for github actions"
+  type        = string
+}
+
 locals {
   account_id = data.aws_caller_identity.current.account_id
   aws_region               = "us-east-1"
@@ -19,6 +24,7 @@ locals {
   lambda_layer             = "lambda_layer"
   rapid_api_host           = var.rapid_api_host
   rapid_api_key            = var.rapid_api_key
+  terraform_role_arn       = var.terraform_role_arn
 
   # buckets 
   etl_bucket_name          = "droberts-real-estate-etl"
