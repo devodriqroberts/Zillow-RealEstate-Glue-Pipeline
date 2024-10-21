@@ -1,0 +1,13 @@
+Workspaces:
+  - !Workspace
+    database: raw_data
+    table_name: atlanta
+  - !Workspace
+    database: raw_data
+    table_name: savannah
+# - !Workspace
+#    database: raw_data
+#    table_name: houston
+# - !Workspace
+#    database: raw_data
+#    table_name: dallas

@@ -1,0 +1,6 @@
+infrastructure/.terraform*
+infrastructure/terraform*
+infrastructure/*tfstate
+infrastructure/*.zip
+infrastructure/lambda_function_extract_data.zip
+*.env
