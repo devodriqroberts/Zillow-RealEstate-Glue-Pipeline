@@ -3,7 +3,7 @@ data "aws_caller_identity" "current" {}
 variable "rapid_api_host" {
   description = "Host to Zillow RapidAPI endpoint"
   type        = string
-  default = "zillow-com1.p.rapidapi.com"
+  default     = "zillow-com1.p.rapidapi.com"
 }
 
 variable "rapid_api_key" {
@@ -18,7 +18,7 @@ variable "terraform_role_arn" {
 
 locals {
   account_id = data.aws_caller_identity.current.account_id
-  aws_region               = "us-east-1"
+  aws_region = "us-east-1"
 
   lambda_layer_bucket_name = "droberts-lambda-layer-bucket"
   lambda_layer             = "lambda_layer"
@@ -27,20 +27,20 @@ locals {
   terraform_role_arn       = var.terraform_role_arn
 
   # buckets 
-  etl_bucket_name          = "droberts-real-estate-etl"
-  etl_utils_bucket_name    = "droberts-real-estate-etl-utils"
-  data_loading_zone_key    = "raw-data/"
-  data_processed_zone_key  = "processed-data/"
+  etl_bucket_name         = "droberts-real-estate-etl"
+  etl_utils_bucket_name   = "droberts-real-estate-etl-utils"
+  data_loading_zone_key   = "raw-data/"
+  data_processed_zone_key = "processed-data/"
 
   # scripts
   etl_script_key                        = "script/glue_etl_script.py"
   local_etl_data_processing_script_path = "../etl/glue_job/transform_data.py"
 
   # requests lambda layer
-  requests_layer_zip_path   = "requests.zip"
-  requests_layer_name       = "zillow_requests_layer"
+  requests_layer_zip_path = "requests.zip"
+  requests_layer_name     = "zillow_requests_layer"
 
-  path_to_system_folder     = "../etl/extract/System"
+  path_to_system_folder = "../etl/extract/System"
 
   compatible_layer_runtimes = ["python3.10", "python3.11", "python3.12"]
   compatible_architectures  = ["x86_64"]
@@ -60,8 +60,8 @@ locals {
   # iam
 
   # Glue Crawler
-  crawler_name        = "zillow_real_estate_crawler"
-  city                = "atlanta"
+  crawler_name = "zillow_real_estate_crawler"
+  city         = "atlanta"
 
   # Glue Classifier
   classifier_name = "zillow_real_estate_classifier"
@@ -84,7 +84,7 @@ locals {
   conf                    = "spark.sql.extensions=org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions  --conf spark.sql.catalog.glue_catalog=org.apache.iceberg.spark.SparkCatalog  --conf spark.sql.catalog.glue_catalog.warehouse=s3://tnt-erp-sql/ --conf spark.sql.catalog.glue_catalog.catalog-impl=org.apache.iceberg.aws.glue.GlueCatalog  --conf spark.sql.catalog.glue_catalog.io-impl=org.apache.iceberg.aws.s3.S3FileIO"
 
   # cloudwatch
-  schedule_name  = "schedule"
+  schedule_name       = "schedule"
   schedule_expression = "cron(0 8 ? * MON-FRI *)"
 
   # Glue Trigger 
