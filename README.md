@@ -4,7 +4,7 @@
 
 This project provisions an AWS Glue ETL pipeline to automate the extraction, transformation, and loading (ETL) of Zillow real estate data using Terraform. The pipeline is designed to fetch property listings from the Zillow API, process the data, and store it in Amazon S3 for further analysis and insights.
 
-![Architecture Diagram](https://github.com/devodriqroberts/Zillow-RealEstate-Glue-Pipeline/images/infrastructure.drawio.png)
+![Architecture Diagram](https://github.com/devodriqroberts/Zillow-RealEstate-Glue-Pipeline/blob/main/images/infrastructure.drawio.png)
 
 ## Features
 
